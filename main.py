@@ -33,3 +33,20 @@ def agente():
         puede_dejar_sem.acquire()
 
 
+# Creamos los hilos
+fumador_1 = threading.Thread(target=fumador, args=(1, 'papel'))
+fumador_2 = threading.Thread(target=fumador, args=(2, 'tabaco'))
+fumador_3 = threading.Thread(target=fumador, args=(3, 'filtros'))
+fumador_4 = threading.Thread(target=fumador, args=(4, 'green'))
+fumador_5 = threading.Thread(target=fumador, args=(5, 'cerillas'))
+agente_hilo = threading.Thread(target=agente)
+
+# Iniciamos los hilos
+fumador_1.start()
+fumador_2.start()
+fumador_3.start()
+fumador_4.start()
+fumador_5.start()
+agente_hilo.start()
+
+
